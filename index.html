@@ -1,0 +1,22 @@
+<html>
+<head>
+  <title>aragami</title>
+</head>
+<body>
+  <button class="download-button">download</button>
+  <script>
+    // ダウンロードするテキストデータ
+    const textData = 'tsuchippo blog: 33歳・未経験で Web 業界に転職、日々学んだことを記録しています。主に HTML・CSS・JavaScript・PHPや Web に関することをまとめています。URL: https://tsuchippo.com/';
+
+    // ボタンにクリックイベントを設定
+    const downloadButton = document.querySelector('.download-button'); // ボタンの要素を取得
+    downloadButton.addEventListener('click', () => {
+      const blob = new Blob([textData], {type: 'text/plain'}); // Blob オブジェクトの作成
+      const link = document.createElement('a');
+      link.download = 'tsuchippo blog紹介.txt'; // ダウンロードファイル名称
+      link.href = URL.createObjectURL(blob); // オブジェクト URL を生成
+      link.click(); // クリックイベントを発生させる
+      URL.revokeObjectURL(link.href); // オブジェクト URL を解放」
+    }, false);
+</body>
+</html>
